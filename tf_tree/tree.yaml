@@ -1,0 +1,82 @@
+world:
+  children: ["base_link"]
+  xyzrpy: [0, 0, 0, 0, 0, 0]
+
+base_link:
+  parent: "world"
+  children: ["base_link_inertia"]
+  xyzrpy: [0, 0, 0, 0, 0, 0]
+
+base_link_inertia:
+  parent: "base_link"
+  children: ["shoulder_link"]
+  xyzrpy: [0, 0, 0, 0, 0, 3.141]
+
+shoulder_link:
+  parent: "base_link_inertia"
+  children: ["upper_arm_link"]
+  xyzrpy: [0, 0, 0.152, 0, 0, 1.460]
+
+upper_arm_link:
+  parent: "shoulder_link"
+  children: ["forearm_link"]
+  xyzrpy: [0, 0, 0, 1.571, 1.121, 0]
+
+forearm_link:
+  parent: "upper_arm_link"
+  children: ["wrist_1_link"]
+  xyzrpy: [-0.244, 0, 0, 0, 0, 1.477]
+
+wrist_1_link:
+  parent: "forearm_link"
+  children: ["wrist_2_link"]
+  xyzrpy: [-0.213, 0, 0.131, 0, 0, -2.411]
+
+wrist_2_link:
+  parent: "wrist_1_link"
+  children: ["wrist_3_link"]
+  xyzrpy: [0, -0.085, 0, -1.571, 1.546, 3.141]
+
+wrist_3_link:
+  parent: "wrist_2_link"
+  children: ["flange", "ft_frame"]
+  xyzrpy: [0, 0.092, 0, -1.571, 0.357, 0]
+
+flange:
+  parent: "wrist_3_link"
+  children: ["tool0"]
+  xyzrpy: [0, 0, 0, 0, -1.571, 0]
+
+ft_frame:
+  parent: "wrist_3_link"
+  xyzrpy: [0, 0, 0, 3.141, 0, 0]
+
+tool0:
+  parent: "flange"
+  children: ["robotiq_hande_coupler"]
+  xyzrpy: [0, 0, 0, 1.571, 0, 1.571]
+
+robotiq_hande_coupler:
+  parent: "tool0"
+  children: ["robotiq_hande_link"]
+  xyzrpy: [0, 0, 0, 0, 0, 0]
+
+robotiq_hande_link:
+  parent: "robotiq_hande_coupler"
+  children: ["robotiq_hande_end", "robotiq_hande_left_finger", "robotiq_hande_right_finger"]
+  xyzrpy: [0, 0, 0.011, 0, 0, 0]
+
+robotiq_hande_end:
+  parent: "robotiq_hande_link"
+  xyzrpy: [0, 0, 0.145, 0, 0, 0]
+
+robotiq_hande_left_finger:
+  parent: "robotiq_hande_link"
+  xyzrpy: [0.025, 0, 0.099, 0, 0, 0]
+
+robotiq_hande_right_finger:
+  parent: "robotiq_hande_link"
+  xyzrpy: [-0.025, 0, 0.099, 0, 0, 0]
+
+
+

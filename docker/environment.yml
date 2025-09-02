@@ -1,0 +1,13 @@
+name: lab-1
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - pip=25.1
+  - pip:
+    - ipython
+    - numpy
+    - spatialmath-python
+    - matplotlib
+    - pyyaml
+prefix: /opt/conda/envs/lab-1
