@@ -34,6 +34,7 @@
 build
 log
 install
+COLCON_IGNORE
 
 # Gazebo and Isaac world files
 gazebo_envs

@@ -45,7 +45,6 @@ ENV DEBIAN_FRONTEND=dialog
 RUN useradd -ms "/bin/bash -i" robot
 USER robot
 WORKDIR /home/robot
-RUN mkdir Desktop
 
 COPY docker/environment.yml /tmp/environment.yml
 
