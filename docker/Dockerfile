@@ -42,16 +42,26 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo '$TZ' | sudo tee -a /
 ENV DEBIAN_FRONTEND=dialog
 
 # Setup conda env
-RUN useradd -ms "/bin/bash -i" robot
+
+# defaults
+ARG userid=1002
+ARG groupid=1002
+
+RUN groupadd -g ${groupid} -o robot
+RUN useradd -ms /bin/bash --uid ${userid} -g ${groupid} robot
 USER robot
 WORKDIR /home/robot
+RUN mkdir Desktop
 
-COPY docker/environment.yml /tmp/environment.yml
+COPY config/environment.yml /tmp/environment.yml
 
 RUN conda env create -f /tmp/environment.yml
 RUN echo "source activate lab-1" >> ~/.bashrc
-ENV PATH /opt/conda/envs/lab-1/bin:$PATH
+ENV PATH /opt/conda/envs/lab-0/bin:$PATH
 
-RUN mkdir lab-1
+RUN mkdir -p lab-1/src
+
+# Setup tmux config
+ADD --chown=robot:robot https://raw.githubusercontent.com/MarylandRoboticsCenter/someConfigs/refs/heads/master/.tmux_K.conf /home/robot/.tmux.conf
 
 ENTRYPOINT ["/bin/bash", "-i"]
