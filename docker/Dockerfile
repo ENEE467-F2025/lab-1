@@ -51,7 +51,6 @@ RUN groupadd -g ${groupid} -o robot
 RUN useradd -ms /bin/bash --uid ${userid} -g ${groupid} robot
 USER robot
 WORKDIR /home/robot
-RUN mkdir Desktop
 
 COPY config/environment.yml /tmp/environment.yml
 
