@@ -33,6 +33,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends --allow-unauthe
     tmux \
     tzdata \
     xclip \
+    python3-tk \
     x11proto-gl-dev && \
     rm -rf /var/lib/apt/lists/*
 
