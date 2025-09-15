@@ -10,4 +10,6 @@ dependencies:
     - spatialmath-python
     - matplotlib
     - pyyaml
+    - click
+    - requests
 prefix: /opt/conda/envs/lab-1

@@ -32,11 +32,11 @@ To build the Docker container, ensure that you have [Docker](https://www.docker.
 ## Starting the Container
 
 The lab computers contain a prebuild image so you will not have to build the image.
-* Clone this repo to get the lab-0 code if you haven't done so already
+* Clone this repo to get the lab-1 code if you haven't done so already
     ```
     cd ~/Labs
     git clone https://github.com/ENEE467-F2025/lab-1.git
-    cd lab-0/docker
+    cd lab-1/docker
     ```
 * Run the Docker container
     ```
