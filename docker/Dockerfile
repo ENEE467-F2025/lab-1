@@ -37,6 +37,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends --allow-unauthe
     x11proto-gl-dev && \
     rm -rf /var/lib/apt/lists/*
 
+# install VS Code server
+RUN curl -fsSL https://code-server.dev/install.sh | sh
+# install python extension
+RUN code-server --install-extension ms-python.python
+
 # Set datetime and timezone correctly
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo '$TZ' | sudo tee -a /etc/timezone
 
@@ -63,5 +68,6 @@ RUN mkdir -p lab-1/src
 
 # Setup tmux config
 ADD --chown=robot:robot https://raw.githubusercontent.com/MarylandRoboticsCenter/someConfigs/refs/heads/master/.tmux_K.conf /home/robot/.tmux.conf
+
 
 ENTRYPOINT ["/bin/bash", "-i"]
